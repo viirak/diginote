@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> {% block title %}{% endblock %} | Diginote</title>
+</head>
+
+<body>
+    <div class="page">
+        <header>
+            <div class="site-name">Diginote</div>
+        </header>
+        <hr />
+        <main>
+        {% block content %}{% endblock %}
+        </main>
+        <footer>
+            <hr />
+            <p>Copyright &copy; {% now "Y" %}</p>
+        </footer>
+    </div>
+</body>
+</html>
