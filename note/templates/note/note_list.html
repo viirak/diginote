@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}List{% endblock %}
+{% block content %}
+
+<div style="display: flex; justify-content: space-between;">
+<h2 style="margin: 0;">Your notes</h2>
+<form action={% url 'notes:all' %} method="GET">
+    <input type="text" name="q" value="{{ q }}"" />
+    <input type="submit" value="Search" />
+    <input type="submit" onclick="window.location='{% url 'notes:all' %}'; return false;" value="Clear">
+</form>
+</div>
+<hr />
+{%if note_list|length > 0 %}
+<ul>
+    {% for note in note_list %}
+    <li>
+        <a href="{% url 'notes:note_detail' note.id %}">{{note.title}}</a>
+    </li>
+    {% endfor %}
+</ul>
+<hr />
+<div class="actions">
+    <a href="{% url 'notes:note_create' %}">Add another note</a>
+</div>
+{% else %}
+{% if not q %}
+<div>
+    <p></p>You don't have any note.</div>
+    <p><a href="{% url 'notes:note_create' %}">Create a new note</a></p>
+</div>
+{% else %}
+<div>
+    <p>There's no note found.</p>
+</div>
+</div>
+{% endif %}
+{% endif %}
+
+{% endblock %}
