@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% url 'notes:all' as list_all %}
+<h1 class="mb-5">Delete Note</h1>
+
+<p class="h5">Are you sure you want to delete the Note:</p>
+<h3>{{ note.title }}</h3>
+<form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Confirm" />
+    <input type="submit" onclick="window.location='{{list_all}}'; return false;" value="Cancel" />
+</form>
+
+{% endblock %}

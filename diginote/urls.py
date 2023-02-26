@@ -15,12 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from diginote.views import HomeView
+# from diginote.views import HomeView
 from diginote.views import SignupView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("accounts/", include("django.contrib.auth.urls")),  # login, logout, password
+    path("accounts/", include(("django.contrib.auth.urls", "accounts"), namespace='accounts')),  # login, logout, password
     path("accounts/signup", SignupView.as_view(), name="signup"),
-    path("", HomeView.as_view(), name="home"),
+    path("", include(("note.urls", "notes"), namespace="notes"), name="home"),
 ]
