@@ -7,8 +7,11 @@
 
 <body>
     <div class="page">
-        <header>
-            <div class="site-name">Diginote</div>
+        <header style="display: flex; justify-content: space-between;">
+            <a href="{%url 'notes:all' %}">Diginote</a>
+            {% if request.user.is_authenticated %}
+            <span>Welcome <strong>{{ request.user.username }}</strong>, <a href="{% url 'accounts:logout' %}" title="Logout">Logout</a></span>
+            {% endif %}
         </header>
         <hr />
         <main>
