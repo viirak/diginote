@@ -1,6 +1,18 @@
 # Diginote
 A simple django application for note taking.
 
+## Features
+
+- User authentication: Users should be able to sign up, log in, and log out.
+- Note creation: Users should be able to create new notes by entering a title and content.
+- Note listing: Users should be able to see a list of all their notes on a single page.
+- Note detail view: Users should be able to click on a note in the list to view its title and content.
+- Note editing: Users should be able to edit the title and content of a note.
+- Note deletion: Users should be able to delete a note.
+- User-specific data: Each user should only be able to see and modify their own notes.
+- Filtering: Users should be able to filter notes by title using a search bar.
+- Testing: Write unit tests for at least two of the core application features, such as note creation or editing. The tests should cover both positive and negative scenarios and demonstrate the correct functioning of the application.
+
 ## Usage
 
 ### Virtual ENV
